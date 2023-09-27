@@ -1,0 +1,9 @@
+> # Generate new names for the first three columns
+> new_names <- paste("NewName", seq_along(current_column_names[1:3]), sep = "")
+> 
+> # Update the column names
+> colnames(data100)[1:3] <- new_names
+
+> result_df <- data100 %>%
++     group_by(NewName1, NewName2) %>%
++     summarize(across(starts_with("V"), list(mean = mean, sd = sd)))
